@@ -32,10 +32,10 @@ export default function Messages() {
               <span className="material-symbols-outlined" data-icon="star">star</span>
               <span>Favorites</span>
             </a>
-            <a href="#" className="flex items-center space-x-3 p-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors font-body-md text-body-md group">
+            <Link to="/profile/edit" className="flex items-center space-x-3 p-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors font-body-md text-body-md group">
               <span className="material-symbols-outlined" data-icon="person">person</span>
               <span>Profile</span>
-            </a>
+            </Link>
           </div>
           <div className="mt-auto space-y-6 pt-6 border-t border-outline-variant">
             <button className="w-full bg-secondary text-on-secondary font-label-caps text-label-caps py-3 rounded-xl hover:shadow-lg transition-shadow tracking-wider">Upgrade to Gold</button>
@@ -251,10 +251,10 @@ export default function Messages() {
             <span className="material-symbols-outlined mb-1" data-icon="people">people</span>
             <span className="font-label-caps text-[10px] tracking-wide">Matches</span>
           </a>
-          <a href="#" className="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 w-16">
+          <Link to="/profile/edit" className="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 w-16">
             <span className="material-symbols-outlined mb-1" data-icon="account_circle">account_circle</span>
             <span className="font-label-caps text-[10px] tracking-wide">Profile</span>
-          </a>
+          </Link>
         </nav>
       </div>
     </div>

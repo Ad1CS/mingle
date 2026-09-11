@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Landing() {
+  const { user, loading } = useAuth();
+
   return (
     <div className="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
       {/* TopNavBar */}
@@ -16,13 +19,22 @@ export default function Landing() {
           <a href="#" className="text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200">Community</a>
         </div>
         <div className="hidden md:flex items-center gap-4">
-          <a href="#" className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors">Log In</a>
-          <a href="#" className="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps hover:bg-surface-tint transition-colors shadow-sm">Join Mingle</a>
+          {!loading && (
+            user ? (
+              <Link to="/discover" className="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps hover:bg-surface-tint transition-colors shadow-sm">Go to App</Link>
+            ) : (
+              <>
+                <Link to="/login" className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors">Log In</Link>
+                <Link to="/register" className="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps hover:bg-surface-tint transition-colors shadow-sm">Join Mingle</Link>
+              </>
+            )
+          )}
         </div>
         <button className="md:hidden text-on-surface p-2">
           <span className="material-symbols-outlined">menu</span>
         </button>
       </nav>
+
       
       <main>
         {/* Hero Section */}

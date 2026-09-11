@@ -40,10 +40,10 @@ export default function Discover() {
             <span className="material-symbols-outlined">star</span>
             <span>Favorites</span>
           </a>
-          <a href="#" className="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors group">
+          <Link to="/profile/edit" className="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors group">
             <span className="material-symbols-outlined">person</span>
             <span>Profile</span>
-          </a>
+          </Link>
         </div>
         
         {/* CTA */}
@@ -78,94 +78,16 @@ export default function Discover() {
         </div>
         
         <div className="max-w-4xl mx-auto py-8 px-4 lg:px-8 h-full flex flex-col justify-center items-center min-h-max pb-32 lg:pb-12">
-          {/* Main Profile Card */}
-          <div className="w-full max-w-[540px] bg-white rounded-[24px] shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] border border-[#E5E4E1] overflow-hidden flex flex-col relative group">
-            
-            {/* Image Gallery Carousel (Simulated) */}
-            <div className="relative w-full aspect-[4/5] bg-surface-container-high">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBELikgKh3BSiLkBeQa1ZS8Hn12ZqBYR1bToFdktb_LESHMrfy23YSkB21kfWOlduenPtlz4jCN_OEUFAmaLmam0cgTDc_-tsgb_-op4q8J8sofuscj5z-VSqNuGHSV-YAT1UtlE1SorlRvFeyAb-y6e8gmPbvly3g9CSL0PNP4xvlzwc4VLqxz2B6TnSX7Tse1lpb8SwbqowcrgbK784BEHsypo4SwTT1TatlGq6cunv34cjCRvzQbVQ" alt="Sofia" className="w-full h-full object-cover" />
-              
-              {/* Top Overlay Info */}
-              <div className="absolute top-0 left-0 w-full p-6 bg-gradient-to-b from-black/40 to-transparent flex justify-between items-start">
-                <div className="flex items-center gap-2 bg-black/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
-                  <span className="material-symbols-outlined text-white text-[16px]" data-weight="fill">verified</span>
-                  <span className="text-white font-label-caps text-[11px] uppercase tracking-wider">Verified</span>
-                </div>
-                <button className="w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/40 transition border border-white/10">
-                  <span className="material-symbols-outlined">more_horiz</span>
-                </button>
-              </div>
-              
-              {/* Carousel Indicators */}
-              <div className="absolute top-4 left-0 w-full flex justify-center gap-1.5 px-6">
-                <div className="h-1 flex-1 bg-white rounded-full"></div>
-                <div className="h-1 flex-1 bg-white/30 rounded-full"></div>
-                <div className="h-1 flex-1 bg-white/30 rounded-full"></div>
-              </div>
+          {/* Main Profile Card (Empty State) */}
+          <div className="w-full max-w-[540px] bg-white rounded-[24px] shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] border border-[#E5E4E1] overflow-hidden flex flex-col items-center justify-center p-12 text-center aspect-[3/4]">
+            <div className="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-[40px] text-on-surface-variant">explore_off</span>
             </div>
-            
-            {/* Profile Info Content */}
-            <div className="p-8 flex flex-col gap-6 bg-white relative z-10 -mt-6 rounded-t-[24px]">
-              
-              {/* Header */}
-              <div className="flex justify-between items-end">
-                <div>
-                  <h2 className="font-display-lg-mobile text-display-lg-mobile lg:font-display-lg lg:text-display-lg text-on-surface flex items-baseline gap-2 leading-none mb-2">
-                    Sofia <span className="text-on-surface-variant font-normal text-[28px]">24</span>
-                  </h2>
-                  <div className="flex items-center gap-1.5 text-on-surface-variant text-sm font-medium">
-                    <span className="material-symbols-outlined text-[18px]">location_on</span>
-                    Tel Aviv (2 miles away)
-                  </div>
-                </div>
-                <button className="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary hover:bg-primary-container transition shadow-sm">
-                  <span className="material-symbols-outlined">info</span>
-                </button>
-              </div>
-              
-              <div className="w-full h-[1px] bg-[#E5E4E1]"></div>
-              
-              {/* Bio */}
-              <div>
-                <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                  "Designer, coffee addict, and amateur film photographer. Always looking for the best pasta spot in town."
-                </p>
-              </div>
-              
-              {/* Interests (Chips) */}
-              <div className="flex flex-wrap gap-2">
-                <span className="px-4 py-2 rounded-full bg-secondary-fixed/30 text-on-secondary-container font-label-caps text-label-caps uppercase tracking-wider">Photography</span>
-                <span className="px-4 py-2 rounded-full bg-secondary-fixed/30 text-on-secondary-container font-label-caps text-label-caps uppercase tracking-wider">Travel</span>
-                <span className="px-4 py-2 rounded-full bg-secondary-fixed/30 text-on-secondary-container font-label-caps text-label-caps uppercase tracking-wider">Pilates</span>
-                <span className="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase tracking-wider">+3 More</span>
-              </div>
-              
-              {/* Prompt Area */}
-              <div className="bg-surface-container-low rounded-xl p-5 border border-outline-variant/30 mt-2">
-                <h4 className="font-label-caps text-label-caps text-on-surface-variant uppercase mb-2">My perfect Sunday...</h4>
-                <p className="text-on-surface font-medium text-lg leading-snug">Farmer's market in the morning, followed by a long walk and reading by the beach.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Action Controls (Desktop & Mobile) */}
-          <div className="fixed lg:absolute bottom-24 lg:bottom-12 left-0 w-full flex justify-center items-center gap-6 z-20 pointer-events-none px-4">
-            <div className="pointer-events-auto flex gap-6 p-4 rounded-full bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/40 items-center">
-              {/* Pass */}
-              <button className="w-16 h-16 rounded-full bg-white border border-[#E5E4E1] shadow-sm flex items-center justify-center text-[#5B403F] hover:bg-[#F5F3F3] hover:scale-105 transition-all duration-200 group">
-                <span className="material-symbols-outlined text-[32px] group-hover:text-black transition-colors">close</span>
-              </button>
-              
-              {/* Super Like */}
-              <button className="w-14 h-14 rounded-full bg-[#E5E4E1] shadow-inner flex items-center justify-center text-blue-500 hover:bg-blue-50 hover:text-blue-600 hover:scale-110 hover:shadow-md transition-all duration-200 group">
-                <span className="material-symbols-outlined text-[28px] group-hover:scale-110 transition-transform" data-weight="fill">star</span>
-              </button>
-              
-              {/* Like */}
-              <button className="w-20 h-20 rounded-full bg-primary text-white shadow-lg shadow-primary/30 flex items-center justify-center hover:bg-surface-tint hover:scale-110 hover:shadow-xl transition-all duration-200 group">
-                <span className="material-symbols-outlined text-[40px] group-hover:scale-110 transition-transform" data-weight="fill">favorite</span>
-              </button>
-            </div>
+            <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface mb-2">No more profiles</h2>
+            <p className="font-body-md text-on-surface-variant max-w-sm">
+              We're out of potential matches for you right now. 
+              {/* TODO: Wire this up to the Django discovery API once it exists */}
+            </p>
           </div>
         </div>
       </main>
@@ -188,10 +110,10 @@ export default function Discover() {
           <span className="material-symbols-outlined">chat_bubble</span>
           <span className="font-label-caps text-[10px] mt-1">Messages</span>
         </Link>
-        <a href="#" className="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container-high rounded-xl transition">
+        <Link to="/profile/edit" className="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container-high rounded-xl transition">
           <span className="material-symbols-outlined">account_circle</span>
           <span className="font-label-caps text-[10px] mt-1">Profile</span>
-        </a>
+        </Link>
       </nav>
     </div>
   );

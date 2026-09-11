@@ -14,7 +14,7 @@ export default function Meetups() {
           <a href="#" className="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200">Matches</a>
           <Link to="/messages" className="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200">Messages</Link>
           <Link to="/meetups" className="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200">Meetups</Link>
-          <a href="#" className="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200">Profile</a>
+          <Link to="/profile/edit" className="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200">Profile</Link>
         </nav>
         <div className="flex gap-4">
           <button className="font-body-md text-body-md px-4 py-2 border border-outline text-on-surface-variant rounded-xl hover:bg-surface-container-low transition-colors">Log In</button>
@@ -51,10 +51,10 @@ export default function Meetups() {
               <span className="material-symbols-outlined" data-icon="star">star</span>
               <span className="font-body-md text-body-md">Favorites</span>
             </a>
-            <a href="#" className="flex items-center gap-4 p-3 rounded-xl text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors">
+            <Link to="/profile/edit" className="flex items-center gap-4 p-3 rounded-xl text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors">
               <span className="material-symbols-outlined" data-icon="person">person</span>
               <span className="font-body-md text-body-md">Profile</span>
-            </a>
+            </Link>
           </nav>
           
           <div className="mt-auto pt-8 border-t border-outline-variant flex flex-col gap-2">
@@ -208,10 +208,10 @@ export default function Meetups() {
           <span className="material-symbols-outlined mb-1" data-icon="event" style={{fontVariationSettings: "'FILL' 1"}}>event</span>
           <span className="font-label-caps text-[10px]">Meetups</span>
         </Link>
-        <a href="#" className="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 hover:bg-surface-container-high">
+        <Link to="/profile/edit" className="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant p-2 hover:bg-surface-container-high">
           <span className="material-symbols-outlined mb-1" data-icon="account_circle">account_circle</span>
           <span className="font-label-caps text-[10px]">Profile</span>
-        </a>
+        </Link>
       </nav>
       
       {/* Footer */}
