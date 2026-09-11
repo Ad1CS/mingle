@@ -1,9 +1,13 @@
 export const API_BASE = `${import.meta.env.VITE_API_BASE_URL ?? ""}/api/v1`;
+const NGROK_SKIP_BROWSER_WARNING_HEADER = "ngrok-skip-browser-warning";
 
 export async function fetchCsrfToken(): Promise<string> {
   const res = await fetch(`${API_BASE}/auth/csrf/`, {
     credentials: "include",
-    headers: { "Content-Type": "application/json" }
+    headers: {
+      "Content-Type": "application/json",
+      [NGROK_SKIP_BROWSER_WARNING_HEADER]: "true",
+    }
   });
   if (!res.ok) throw new Error("Failed to fetch CSRF token");
   const data = await res.json();
@@ -14,6 +18,7 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
   const isUnsafe = ["POST", "PUT", "PATCH", "DELETE"].includes(options.method?.toUpperCase() || "GET");
   
   const headers = new Headers(options.headers || {});
+  headers.set(NGROK_SKIP_BROWSER_WARNING_HEADER, "true");
   if (!headers.has("Content-Type") && !(options.body instanceof FormData)) {
     headers.set("Content-Type", "application/json");
   }
