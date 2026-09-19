@@ -4,6 +4,7 @@ import { apiFetch } from '../lib/api';
 export interface User {
   id: string;
   email: string;
+  email_verified: boolean;
   profile_complete: boolean;
 }
 
@@ -12,6 +13,8 @@ interface AuthContextType {
   loading: boolean;
   login: (data: any) => Promise<void>;
   register: (data: any) => Promise<void>;
+  verifyEmail: (token: string) => Promise<void>;
+  resendVerificationEmail: () => Promise<void>;
   logout: () => Promise<void>;
   refreshSession: () => Promise<void>;
 }
@@ -57,6 +60,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await refreshSession();
   };
 
+  const verifyEmail = async (token: string) => {
+    await apiFetch('/auth/verify-email/', {
+      method: 'POST',
+      body: JSON.stringify({ token })
+    });
+    await refreshSession();
+  };
+
+  const resendVerificationEmail = async () => {
+    await apiFetch('/auth/resend-verification/', { method: 'POST' });
+  };
+
   const logout = async () => {
     try {
       await apiFetch('/auth/logout/', { method: 'POST' });
@@ -68,7 +83,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, refreshSession }}>
+    <AuthContext.Provider value={{ user, loading, login, register, verifyEmail, resendVerificationEmail, logout, refreshSession }}>
       {children}
     </AuthContext.Provider>
   );

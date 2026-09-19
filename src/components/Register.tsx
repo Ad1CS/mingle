@@ -17,7 +17,7 @@ export default function Register() {
     setIsLoading(true);
     try {
       await register({ email, password, birth_date: birthDate });
-      navigate('/profile/edit', { replace: true });
+      navigate('/verify-email', { replace: true });
     } catch (err: any) {
       setError(err.message || 'Failed to register');
     } finally {

@@ -14,6 +14,7 @@ import Meetups from './components/Meetups';
 import Login from './components/Login';
 import Register from './components/Register';
 import ProfileEdit from './components/ProfileEdit';
+import VerifyEmail from './components/VerifyEmail';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
           <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
           <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
           <Route path="/meetups" element={<ProtectedRoute><Meetups /></ProtectedRoute>} />
