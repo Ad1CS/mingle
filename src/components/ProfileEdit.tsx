@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { apiFetch } from '../lib/api';
+import PhotoManager from './PhotoManager';
 
 interface ProfileData {
   id: string;
@@ -14,9 +15,11 @@ interface ProfileData {
   pronouns: string;
   relationship_intention: string;
   city: string;
+  primary_photo_url?: string;
 }
 
 export default function ProfileEdit() {
+
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [profile, setProfile] = useState<ProfileData | null>(null);
@@ -114,6 +117,16 @@ export default function ProfileEdit() {
             {success}
           </div>
         )}
+
+        <div className="mb-6">
+          <PhotoManager
+            onPhotosUpdated={(url) => {
+              if (profile) {
+                setProfile({ ...profile, primary_photo_url: url });
+              }
+            }}
+          />
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant">
